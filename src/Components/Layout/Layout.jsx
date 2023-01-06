@@ -3,14 +3,14 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { LOGIN } from '../../lib/routes';
 import { useAuth } from '../../Hooks/auth';
-
+import Navbar from '../Navbar/Navbar';
 
 const Layout = () => {
   const navigate = useNavigate();
    const location = useLocation();//location object
-   console.log(location)
+  //  console.log(location)
    const { pathname } = location;
-   console.log(pathname); //pathname will provide us with:  /protected/score
+  //  console.log(pathname); //pathname will provide us with:  /protected/score
 
    //here we will be making our own custom hook that will be coming from hooks folder
    const {user, isLoading} = useAuth();
@@ -28,6 +28,7 @@ const Layout = () => {
 
   return (
     <div>
+      <Navbar/>
       <Outlet/>
       {/* with the help of outlet component React Router gets to know where to insert the children. */}
     </div>
